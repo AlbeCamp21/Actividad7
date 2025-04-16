@@ -1,4 +1,6 @@
 from src.clock import convertir_tiempo_a_horas
+from src.belly import Belly
+import pytest
 
 def test_convertir_horas_simples():
 	assert convertir_tiempo_a_horas("2 horas")==2.0
@@ -24,3 +26,12 @@ def test_convertir_solo_segundos():
 def test_convertir_numeros_con_texto_irregular():
 	assert abs(convertir_tiempo_a_horas("dos horas treinta minutos")-2.5) < 0.01
 
+def test_comer_pepinos_fraccionarios():
+	b = Belly()
+	b.comer(2.75)
+	assert b.pepinos_comidos==2.75
+
+def test_comer_pepinos_negativos_lanza_error():
+	b = Belly()
+	with pytest.raises(ValueError):
+		b.comer(-1)
