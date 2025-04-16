@@ -29,7 +29,11 @@ jobs:
         run: |
           pytest tests/test_belly.py --maxfail=1 --disable-warnings -q
 
-      - name: Corriendo behave
+      - name: Corriendo behave spanish
         run: |
-          python3 -m behave
+          python3 -m behave --tags=@spanish
+          
+      - name: Corriendo behave english
+        run: |
+          python3 -m behave --tags=@english
 
