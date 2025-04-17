@@ -65,4 +65,7 @@ jobs:
 
       - name: Ejecutar pruebas @issue1
         run: behave --tags=@issue1
+        
+      - name: Ejecutar pruebas @issue2
+        run: behave --tags=@issue2
 

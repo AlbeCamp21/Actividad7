@@ -74,3 +74,12 @@ def test_esta_gruñendo_mucho_tiempo_muchos_pepinos():
 	b.comer(15)
 	b.esperar(2.0)
 	assert b.esta_gruñendo() is True
+	
+def test_estomago_predecir_gruñido():
+	belly = Belly()
+	belly.comer(12)
+	belly.esperar(1.5)
+	assert belly.esta_gruñendo() == True
+
+	
+	
