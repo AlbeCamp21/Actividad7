@@ -35,3 +35,9 @@ def test_comer_pepinos_negativos_lanza_error():
 	b = Belly()
 	with pytest.raises(ValueError):
 		b.comer(-1)
+		
+def test_grunir_si_comio_pepinos():
+	b = Belly()
+	b.comer(25)
+	b.esperar(2)
+	assert b.esta_gruñendo() == True

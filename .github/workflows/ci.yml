@@ -45,7 +45,7 @@ jobs:
           end=$(date +%s)
           duracion=$((end - start))
           echo "Prueba completada"
-          if ["$duracion" -gt 10]; then
+          if [ "$duracion" -gt 10 ]; then
             echo "Cuidado, la prueba tardo mucho: ${duracion} s"
             exit 1
           fi
