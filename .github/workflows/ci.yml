@@ -49,4 +49,8 @@ jobs:
             echo "Cuidado, la prueba tardo mucho: ${duracion} s"
             exit 1
           fi
+          
+      - name: Prueba con issue1
+        run: |
+          behave --tags=@issue1
 

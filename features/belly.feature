@@ -82,6 +82,12 @@ Característica: Comportamiento del Estómago
 		Dado que he comido 15 pepinos
 		Cuando espero 2 horas
 		Entonces mi estómago debería gruñir
+		
+	@issue1
+	Escenario: Comportamiento del estómago luego de comer pepinos
+		Dado que he comido 20 pepinos
+		Cuando espero 3 horas
+		Entonces mi estómago debería gruñir
 
 
 
