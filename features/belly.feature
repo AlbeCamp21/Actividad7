@@ -31,12 +31,6 @@ Característica: Comportamiento del Estómago
 		Dado que he comido 10.5 pepinos
 		Cuando espero 2 horas
 		Entonces mi estómago debería gruñir
-
-	@english	
-	Escenario: Esperar usando horas en inglés
-		Dado que he comido 20 pepinos
-		Cuando espero "two hours and thirty minutes"
-		Entonces mi estómago debería gruñir
 		
 	@spanish
 	Escenario: Comer pepinos y esperar un tiempo aleatorio
@@ -71,23 +65,59 @@ Característica: Comportamiento del Estómago
 		Dado que he comido 15 pepinos
 		Cuando espero 2 horas
 		Entonces mi estómago debería gruñir
+			
+	@spanish
+	Escenario: Saber cuántos pepinos he comido
+		Dado que he comido 15 pepinos
+		Entonces debería haber comido 15 pepinos
+	
+	
 		
+
+
+	@english	
+	Escenario: Esperar usando horas en inglés
+		Dado que he comido 20 pepinos
+		Cuando espero "two hours and thirty minutes"
+		Entonces mi estómago debería gruñir
+		
+
+
+
 	@issue1
 	Escenario: Comportamiento del estómago luego de comer pepinos
 		Dado que he comido 20 pepinos
 		Cuando espero 3 horas
 		Entonces mi estómago debería gruñir
 		
-	@spanish
-	Escenario: Saber cuántos pepinos he comido
-		Dado que he comido 15 pepinos
-		Entonces debería haber comido 15 pepinos
-	
 	@issue2	
 	Escenario: Predecir si estómago gruñirá luego de comer y esperar
 		Dado que he comido 12 pepinos
 		Cuando espero 90 minutos
 		Entonces mi estómago debería gruñir
+					
+		
+
+
+
+	@criterio_nuevo
+	Escenario: Saber cuántos pepinos puedo comer antes de gruñir
+		Dado que he comido 8 pepinos
+		Cuando pregunto cuántos pepinos más puedo comer
+		Entonces debería decirme que puedo comer 2 pepinos más
+
+	@criterio_nuevo
+	Escenario: Ya he alcanzado el límite de pepinos
+		Dado que he comido 10 pepinos
+		Cuando pregunto cuántos pepinos más puedo comer
+		Entonces debería decirme que no puedo comer más pepinos
+
+	@criterio_nuevo
+	Escenario: He comido más pepinos del límite
+		Dado que he comido 12 pepinos
+		Cuando pregunto cuántos pepinos más puedo comer
+		Entonces debería decirme que ya he comido demasiado
+
 
 
 

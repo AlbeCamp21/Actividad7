@@ -68,4 +68,7 @@ jobs:
         
       - name: Ejecutar pruebas @issue2
         run: behave --tags=@issue2
+        
+      - name: Ejecutar nuevo criterio
+        run: behave --tags=@criterio_nuevo
 

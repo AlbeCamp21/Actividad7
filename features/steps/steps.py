@@ -82,8 +82,11 @@ def step_when_wait_time_description(context, time_description):
 		total_time_in_hours = hours + (minutes / 60) + (seconds/3600)
 	else:
 		raise ValueError(f"No se pudo interpretar la descripción del tiempo: {time_description}")
-
 	context.belly.esperar(total_time_in_hours)
+	
+@when('pregunto cuántos pepinos más puedo comer')
+def step_when_pregunto_cuantos_faltan(context):
+	context.faltan = context.belly.pepinos_restantes_grunir()
 
 @then('mi estómago debería gruñir')
 def step_then_belly_should_growl(context):
@@ -111,6 +114,19 @@ def step_then_pepinos_comidos(context, esperados):
 	assert context.belly.pepinos_comidos == esperados, (
 		f"Se esperaban {esperados} pepinos, pero se comieron {context.belly.pepinos_comidos}."
 	)
+	
+@then('debería decirme que puedo comer {cantidad:g} pepinos más')
+def step_then_deberia_decirme_faltan(context, cantidad):
+    assert context.faltan == cantidad, f"Esperado {cantidad}, pero fue {context.faltan}"
+
+@then('debería decirme que no puedo comer más pepinos')
+def step_then_no_puede_comer_mas(context):
+    assert context.faltan == 0, "Se esperaba que no pudiera comer más pepinos"
+
+@then('debería decirme que ya he comido demasiado')
+def step_then_ya_excedido(context):
+    assert context.faltan < 0, f"Se esperaba una cantidad negativa, pero fue {context.faltan}"
+
 
 
 

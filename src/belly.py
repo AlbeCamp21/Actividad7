@@ -2,6 +2,7 @@ class Belly:
 	def __init__(self):
 		self.pepinos_comidos = 0
 		self.tiempo_esperado = 0
+		self.limite=10
 
 	def comer(self, pepinos):
 		if pepinos < 0:
@@ -16,3 +17,7 @@ class Belly:
 	def esta_gruñendo(self):
 		# El estómago gruñe si ha esperado al menos 1.5 horas y ha comido más de 10 pepinos
 		return self.tiempo_esperado >= 1.5 and self.pepinos_comidos > 10
+		
+	def pepinos_restantes_grunir(self):
+		falta = self.limite-self.pepinos_comidos
+		return falta
