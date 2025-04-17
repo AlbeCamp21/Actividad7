@@ -71,4 +71,10 @@ Característica: Comportamiento del Estómago
 		Cuando espero 10 horas
 		Entonces mi estómago debería gruñir
 
+	@spanish
+	Escenario: Manejar otros tiempos
+		Dado que he comido 50 pepinos
+		Cuando espero "1 hora, 30 minutos y 45 segundos"
+		Entonces mi estómago debería gruñir
+
 
