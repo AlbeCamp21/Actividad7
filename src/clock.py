@@ -18,7 +18,7 @@ def convertir_palabra_a_numero(palabra):
 
 def convertir_tiempo_a_horas(tiempo_str):
 	tiempo_str = tiempo_str.strip('"').lower()
-	tiempo_str = re.sub(r'[y,]', ' ', tiempo_str) # reemplaza y y comas en espacios
+	tiempo_str = re.sub(r'[y,]', ' ', tiempo_str)  # reemplaza y y comas en espacios
 	tiempo_str = tiempo_str.strip()
 	pattern = re.compile(
 		r'(?:(\w+)\s*horas?)?\s*'
