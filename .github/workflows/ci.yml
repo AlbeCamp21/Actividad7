@@ -31,9 +31,9 @@ jobs:
 
       - name: Corriendo behave spanish
         run: |
-          python3 -m behave --tags=@spanish
+          python3 -m behave --tags=@spanish || exit 1
           
       - name: Corriendo behave english
         run: |
-          python3 -m behave --tags=@english
+          python3 -m behave --tags=@english || exit 1
 

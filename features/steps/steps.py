@@ -2,7 +2,7 @@ from behave import given, when, then
 import re
 from src.belly import Belly
 import random
-
+import traceback
 
 # Función para convertir palabras numéricas a números
 def convertir_palabra_a_numero(palabra):
@@ -31,13 +31,22 @@ def convertir_palabra_a_numero(palabra):
 @given('que he comido {cukes:g} pepinos') # Cambiando a float
 def step_given_eaten_cukes(context, cukes):
 	context.belly.comer(float(cukes))
-
+'''
 @given('que intento comer {cukes:g} pepinos')
 def step_given_attempt_negative_pepinos(context, cukes):
 	try:
 		context.belly.comer(float(cukes))
 	except Exception as e:
 		context.error = str(e)
+'''
+
+@given('que intento comer {cukes:g} pepinos')
+def step_given_comer_con_error(context, cukes):
+	try:
+		context.belly = Belly()
+		context.belly.comer(float(cukes))
+	except ValueError as e:
+		context.exception = e
 
 @when('espero un tiempo aleatorio entre {min_time:g} y {max_time:g} horas')
 def step_when_random_wait(context, min_time, max_time):
@@ -82,8 +91,19 @@ def step_then_belly_should_growl(context):
 @then('mi estómago no debería gruñir')
 def step_then_belly_should_not_growl(context):
 	assert not context.belly.esta_gruñendo(), "Se esperaba que el estómago no gruñera, pero lo hizo."
-	
+		
 @then('debería ver un error')
 def step_then_should_see_error(context):
-	assert hasattr(context, 'error'), "Se esperaba un error"
+	assert isinstance(context.exception, ValueError), "No se lanzó ValueError"
+
+
+@then('debería ocurrir un error de cantidad negativa.')
+def step_then_error_negativo(context):
+	assert isinstance(context.exception, ValueError), "Cantidad negativa no permitida."
+
+@then('debería ocurrir un error de cantidad excesiva.')
+def step_then_error_excesivo(context):
+	assert isinstance(context.exception, ValueError), "Cantidad excesiva no permitida."
+
+
 
