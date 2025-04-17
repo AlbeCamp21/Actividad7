@@ -117,6 +117,14 @@ Característica: Comportamiento del Estómago
 		Dado que he comido 12 pepinos
 		Cuando pregunto cuántos pepinos más puedo comer
 		Entonces debería decirme que ya he comido demasiado
+		
+		
+		
+	
+	@simulando_reloj
+	Escenario: Registrar hora al comer pepinos
+		Dado que he comido 3 pepinos
+		Entonces se debe haber registrado la hora
 
 
 

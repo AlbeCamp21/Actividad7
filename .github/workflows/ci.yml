@@ -71,4 +71,7 @@ jobs:
         
       - name: Ejecutar nuevo criterio
         run: behave --tags=@criterio_nuevo
+        
+      - name: Ejecutar simulacion reloj
+        run: behave --tags=@simulando_reloj
 

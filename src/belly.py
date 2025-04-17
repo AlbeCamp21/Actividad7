@@ -1,8 +1,10 @@
 class Belly:
-	def __init__(self):
+	def __init__(self, clock_service=None):
 		self.pepinos_comidos = 0
 		self.tiempo_esperado = 0
 		self.limite=10
+		self.registro_tiempos = []
+		self.clock_service = clock_service
 
 	def comer(self, pepinos):
 		if pepinos < 0:
@@ -10,6 +12,8 @@ class Belly:
 		if pepinos > 100 and pepinos < 1000:
 			raise ValueError("No se pueden comer mas de 100 pepinos")
 		self.pepinos_comidos += pepinos
+		if self.clock_service:
+			self.registro_tiempos.append(self.clock_service())
 
 	def esperar(self, tiempo_en_horas):
 		self.tiempo_esperado += tiempo_en_horas

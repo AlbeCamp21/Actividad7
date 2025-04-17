@@ -1,6 +1,7 @@
 from src.clock import convertir_tiempo_a_horas
 from src.belly import Belly
 import pytest
+from unittest.mock import MagicMock
 
 def test_convertir_horas_simples():
 	assert convertir_tiempo_a_horas("2 horas")==2.0
@@ -81,5 +82,12 @@ def test_estomago_predecir_gruñido():
 	belly.esperar(1.5)
 	assert belly.esta_gruñendo() == True
 
+def test_comer_registra_tiempo_con_clock_mock():
+	fake_clock = MagicMock()
+	fake_clock.return_value = 12345  #  cualquiera
+	belly = Belly(clock_service=fake_clock)
+	belly.comer(5)
+	assert belly.pepinos_comidos == 5
+	assert belly.registro_tiempos == [12345]
 	
 	

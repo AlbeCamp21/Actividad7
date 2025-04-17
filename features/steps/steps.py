@@ -126,6 +126,10 @@ def step_then_no_puede_comer_mas(context):
 @then('debería decirme que ya he comido demasiado')
 def step_then_ya_excedido(context):
     assert context.faltan < 0, f"Se esperaba una cantidad negativa, pero fue {context.faltan}"
+    
+@then('se debe haber registrado la hora')
+def step_verificacion_hora(context):
+	assert context.belly.registro_tiempos == [99999]
 
 
 
