@@ -48,3 +48,10 @@ Característica: Comportamiento del Estómago
 		Dado que he comido 20 pepinos
 		Cuando espero "two hours and thirty minutes"
 		Entonces mi estómago debería gruñir
+		
+	@spanish
+	Escenario: Comer pepinos y esperar un tiempo aleatorio
+		Dado que he comido 25 pepinos
+		Cuando espero un tiempo aleatorio entre 1 y 3 horas
+		Entonces mi estómago debería gruñir
+
