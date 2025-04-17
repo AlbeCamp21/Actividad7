@@ -64,5 +64,11 @@ Característica: Comportamiento del Estómago
 	Escenario: Manejar una cantidad excesiva de pepinos
 		Dado que intento comer 150 pepinos
 		Entonces debería ocurrir un error de cantidad excesiva.
+	
+	@spanish	
+	Escenario: Comer 1000 pepinos y esperar 10 horas
+		Dado que he comido 1000 pepinos
+		Cuando espero 10 horas
+		Entonces mi estómago debería gruñir
 
 

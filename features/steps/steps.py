@@ -3,8 +3,9 @@ import re
 from src.belly import Belly
 import random
 import traceback
+import time
 
-# Función para convertir palabras numéricas a números
+# de letars a números
 def convertir_palabra_a_numero(palabra):
 	try:
 		return float(palabra) # Cambiado a float

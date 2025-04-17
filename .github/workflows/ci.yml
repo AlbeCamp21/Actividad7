@@ -36,4 +36,17 @@ jobs:
       - name: Corriendo behave english
         run: |
           python3 -m behave --tags=@english || exit 1
+          
+      - name: Prueba 1000 pepinos
+        run: |
+          echo "Iniciando prueba"
+          start=$(date +%s)
+          behave -n "Comer 1000 pepinos y esperar 10 horas"
+          end=$(date +%s)
+          duracion=$((end - start))
+          echo "Prueba completada"
+          if ["$duracion" -gt 10]; then
+            echo "Cuidado, la prueba tardo mucho: ${duracion} s"
+            exit 1
+          fi
 
