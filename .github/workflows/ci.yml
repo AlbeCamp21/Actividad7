@@ -26,6 +26,13 @@ jobs:
       - name: Ejecutar Pytest con cobertura
         run: |
           pytest --cov=src --cov-report=term --cov-report=html tests/test_belly.py --maxfail=1 --disable-warnings -q
+          
+      - name: Guardar reporte
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-coverage-report
+          path: htmlcov
+
 
   behave:
     runs-on: ubuntu-latest
@@ -59,7 +66,7 @@ jobs:
           duracion=$((end - start))
           echo "Prueba completada en $duracion s"
           if [ "$duracion" -gt 10 ]; then
-            echo "⚠️ La prueba tardó demasiado"
+            echo "La prueba tardó demasiado"
             exit 1
           fi
 

@@ -46,3 +46,31 @@ def test_pepinos_restantes():
 	belly = Belly()
 	belly.comer(15)
 	assert belly.pepinos_comidos == 15
+	
+def test_esta_gruñendo_nada_de_tiempo_nada_de_pepinos():
+	b = Belly()
+	assert b.esta_gruñendo() is False
+
+def test_esta_gruñendo_espera_suficiente_pero_pepinos_insuficientes():
+	b = Belly()
+	b.comer(10)
+	b.esperar(1.5)
+	assert b.esta_gruñendo() is False
+
+def test_esta_gruñendo_gruñe_por_pepinos_y_tiempo():
+	b = Belly()
+	b.comer(11)
+	b.esperar(1.5)
+	assert b.esta_gruñendo() is True
+
+def test_esta_gruñendo_mucho_tiempo_pocos_pepinos():
+	b = Belly()
+	b.comer(5)
+	b.esperar(2.0)
+	assert b.esta_gruñendo() is False
+
+def test_esta_gruñendo_mucho_tiempo_muchos_pepinos():
+	b = Belly()
+	b.comer(15)
+	b.esperar(2.0)
+	assert b.esta_gruñendo() is True

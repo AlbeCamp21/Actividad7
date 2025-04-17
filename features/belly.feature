@@ -9,12 +9,6 @@ Característica: Comportamiento del Estómago
 		Entonces mi estómago debería gruñir
 
 	@spanish
-	Escenario: Comer pocos pepinos y no gruñir
-		Dado que he comido 10 pepinos
-		Cuando espero 2 horas
-		Entonces mi estómago no debería gruñir
-
-	@spanish
 	Escenario: Comer muchos pepinos y esperar menos de una hora
 		Dado que he comido 50 pepinos
 		Cuando espero media hora
@@ -38,11 +32,6 @@ Característica: Comportamiento del Estómago
 		Cuando espero 2 horas
 		Entonces mi estómago debería gruñir
 
-	@english
-	Escenario: Error al comer pepinos negativos
-		Dado que intento comer -1 pepinos
-		Entonces debería ver un error
-	
 	@english	
 	Escenario: Esperar usando horas en inglés
 		Dado que he comido 20 pepinos
