@@ -1,5 +1,6 @@
 import re
 
+
 def convertir_palabra_a_numero(palabra):
 	try:
 		return int(palabra)
@@ -14,23 +15,21 @@ def convertir_palabra_a_numero(palabra):
 		}
 		return numeros.get(palabra.lower(), 0)
 
+
 def convertir_tiempo_a_horas(tiempo_str):
 	tiempo_str = tiempo_str.strip('"').lower()
 	tiempo_str = re.sub(r'[y,]', ' ', tiempo_str) # reemplaza y y comas en espacios
 	tiempo_str = tiempo_str.strip()
-
 	pattern = re.compile(
 		r'(?:(\w+)\s*horas?)?\s*'
 		r'(?:(\w+)\s*minutos?)?\s*'
 		r'(?:(\w+)\s*segundos?)?'
 	)
-
 	match = pattern.match(tiempo_str)
 	if match:
 		horas = convertir_palabra_a_numero(match.group(1) or "0")
 		minutos = convertir_palabra_a_numero(match.group(2) or "0")
 		segundos = convertir_palabra_a_numero(match.group(3) or "0")
-		return horas + (minutos / 60) + (segundos/3600)
+		return horas + (minutos / 60) + (segundos / 3600)
 	else:
 		raise ValueError(f"No se pudo interpretar la descripción del tiempo: {tiempo_str}")
-
