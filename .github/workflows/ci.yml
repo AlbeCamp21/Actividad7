@@ -22,18 +22,15 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+          
+      - name: Verificar calidad código con flake8
+        run: |
+          flake8 src/ tests/ --max-line-length=100 --statistics --count
 
       - name: Ejecutar Pytest con cobertura
         run: |
           pytest --cov=src --cov-report=term --cov-report=html --html=report.html --junitxml=report.xml tests/test_belly.py --maxfail=1 --disable-warnings -q
           
-      - name: Guardar reportes como artifacts
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: pytest-reports
-          path: |
-            htmlcov/
-            report.html
 
   behave:
     runs-on: ubuntu-latest
