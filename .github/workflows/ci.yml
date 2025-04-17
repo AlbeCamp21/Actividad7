@@ -26,6 +26,15 @@ jobs:
       - name: Ejecutar Pytest con cobertura
         run: |
           pytest --cov=src --cov-report=term --cov-report=html tests/test_belly.py --maxfail=1 --disable-warnings -q
+          
+      - name: Guardar reportes como artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-reports
+          path: |
+            htmlcov/
+            report.html
+            report.xml
 
   behave:
     runs-on: ubuntu-latest
