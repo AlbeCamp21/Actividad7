@@ -105,6 +105,13 @@ def step_then_error_negativo(context):
 @then('debería ocurrir un error de cantidad excesiva.')
 def step_then_error_excesivo(context):
 	assert isinstance(context.exception, ValueError), "Cantidad excesiva no permitida."
+	
+@then('debería haber comido {esperados:g} pepinos')
+def step_then_pepinos_comidos(context, esperados):
+	assert context.belly.pepinos_comidos == esperados, (
+		f"Se esperaban {esperados} pepinos, pero se comieron {context.belly.pepinos_comidos}."
+	)
+
 
 
 

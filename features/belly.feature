@@ -88,6 +88,11 @@ Característica: Comportamiento del Estómago
 		Dado que he comido 20 pepinos
 		Cuando espero 3 horas
 		Entonces mi estómago debería gruñir
+		
+	@spanish
+	Escenario: Saber cuántos pepinos he comido
+		Dado que he comido 15 pepinos
+		Entonces debería haber comido 15 pepinos
 
 
 
